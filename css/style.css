@@ -10,7 +10,7 @@ body {
   }
     margin: 0;
     padding: 0;
-    background-image: url('assets/img/background.webp');
+    background-image: url('assets/img/background.jpg');
     background-size: cover;         /* Ảnh sẽ che kín toàn bộ background */
     background-repeat: no-repeat;   /* Ngăn không cho ảnh lặp lại */
     background-position: center;    /* Căn giữa ảnh */
