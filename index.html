@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>T's home</title>
+  <style>
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('assets/img/background.webp');
+      background-size: cover;
+      background-position: center;
+      font-family: 'Shantell Sans', cursive;
+    }
+
+    .title {
+      color: #FFD700;
+      font-size: 3em;
+      text-align: center;
+      text-shadow: 2px 2px 6px black;
+      animation: blink 1.2s infinite;
+      margin-top: 50px;
+    }
+
+    .menu {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .menu a {
+      padding: 10px 15px;
+      background-color: rgba(255, 255, 255, 0.6);
+      border: 2px solid #888;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #4B0082;
+      font-size: 1.2em;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      transition: all 0.2s ease-in-out;
+    }
+
+    .menu a:hover {
+      background-color: #FFD700;
+      color: white;
+      border-color: #FFA500;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="title">T's home</div>
+
+  <div class="menu">
+    <a href="sub_html/aboutT.html">Giới thiệu về T</a>
+    <a href="sub_html/videoT.html">List video của T</a>
+    <a href="sub_html/snsT.html">Mạng xã hội của T</a>
+    <a href="sub_html/bq.html">Người làm web ahihi</a>
+
+  </div>
+</body>
+</html>
+
