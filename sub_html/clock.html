@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <link rel="icon" href="../assets/img/icon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <title>Đồng hồ Real-time</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    body {
+      font-family: 'Shantell Sans', cursive;
+      background-image: url('../assets/img/background.jpg');
+      background-size: cover;
+      background-position: center;
+      color: rgb(0, 138, 236);
+      padding: 20px;
+      text-shadow: 1px 1px 5px black;
+    }
+    .time {
+      font-size: 6em;
+      text-align: center;
+      margin-top: 20vh;
+    }
+    .back-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      padding: 10px 15px;
+      background-color: #ffd700;
+      color: black;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+  </style>
+</head>
+<body>
+  <a href="deskT.html"><button class="back-btn">← Quay lại</button></a>
+  <div id="clock" class="time">--:--:--</div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      const s = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById('clock').textContent = `${h}:${m}:${s}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body>
+</html>

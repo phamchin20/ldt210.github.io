@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <link rel="icon" href="../assets/img/icon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <title>Hẹn giờ</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    body {
+      font-family: 'Shantell Sans', cursive;
+      background-image: url('../assets/img/background.jpg');
+      background-size: cover;
+      background-position: center;
+      color: rgb(0, 138, 236);
+      padding: 20px;
+      text-shadow: 1px 1px 5px black;
+    }
+    .time {
+      font-size: 5em;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .inputs {
+      text-align: center;
+      margin-top: 20vh;
+    }
+    input {
+      font-size: 1.5em;
+      width: 70px;
+      text-align: center;
+      margin: 0 10px;
+      border-radius: 8px;
+      padding: 5px;
+      border: none;
+    }
+    button {
+      padding: 10px 20px;
+      margin-top: 20px;
+      font-size: 1em;
+      border-radius: 8px;
+      border: none;
+      background-color: #ffd700;
+      color: black;
+      cursor: pointer;
+    }
+    .back-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      padding: 10px 15px;
+      background-color: #ffd700;
+      color: black;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+    #popup {
+      display: none;
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #ffd700;
+      color: black;
+      padding: 15px 30px;
+      border-radius: 10px;
+      font-size: 1.2em;
+      box-shadow: 0 0 10px black;
+      z-index: 1000;
+      text-align: center;
+    }
+    #overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0,0,0,0.7);
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+  <div id="overlay"></div>
+  <div id="popup">
+    ⏰ Hết giờ!<br>Đã kết thúc sau <span id="doneFor">0</span> giây.
+    <br><button onclick="closePopup()">Thoát</button>
+  </div>
+
+  <a href="deskT.html"><button class="back-btn">← Quay lại</button></a>
+
+  <div class="inputs" id="inputBox">
+    <input type="number" id="hours" placeholder="Giờ" min="0" max="23">
+    <input type="number" id="minutes" placeholder="Phút" min="0" max="59">
+    <input type="number" id="seconds" placeholder="Giây" min="0" max="59"><br>
+    <button onclick="startCountdown()">Bắt đầu</button>
+  </div>
+
+  <div id="countdown" class="time" style="display: none;">00:00:00</div>
+
+  <script>
+    let total = 0;
+    let elapsed = 0;
+    let countdownInterval;
+    let afterInterval;
+  
+    function startCountdown() {
+      const h = parseInt(document.getElementById('hours').value) || 0;
+      const m = parseInt(document.getElementById('minutes').value) || 0;
+      const s = parseInt(document.getElementById('seconds').value) || 0;
+      total = h * 3600 + m * 60 + s;
+  
+      if (total <= 0) {
+        alert("Vui lòng nhập thời gian lớn hơn 0!");
+        return;
+      }
+  
+      document.getElementById('inputBox').style.display = 'none';
+      document.getElementById('countdown').style.display = 'block';
+      updateCountdownDisplay();
+  
+      countdownInterval = setInterval(() => {
+        total--;
+        if (total <= 0) {
+          clearInterval(countdownInterval);
+          document.getElementById('countdown').textContent = "00:00:00";
+          document.getElementById('popup').style.display = 'block';
+          document.getElementById('overlay').style.display = 'block';
+          startAfterCountdown();
+        } else {
+          updateCountdownDisplay();
+        }
+      }, 1000);
+    }
+  
+    function updateCountdownDisplay() {
+      const h = String(Math.floor(total / 3600)).padStart(2, '0');
+      const m = String(Math.floor((total % 3600) / 60)).padStart(2, '0');
+      const s = String(total % 60).padStart(2, '0');
+      document.getElementById('countdown').textContent = `${h}:${m}:${s}`;
+    }
+  
+    function startAfterCountdown() {
+      elapsed = 1;
+      updateAfterText();
+      afterInterval = setInterval(() => {
+        elapsed++;
+        updateAfterText();
+      }, 1000);
+    }
+  
+    function updateAfterText() {
+      const h = String(Math.floor(elapsed / 3600)).padStart(2, '0');
+      const m = String(Math.floor((elapsed % 3600) / 60)).padStart(2, '0');
+      const s = String(elapsed % 60).padStart(2, '0');
+      document.getElementById('doneFor').textContent = `${h}:${m}:${s}`;
+    }
+  
+    function closePopup() {
+      clearInterval(afterInterval);
+      window.location.href = "deskT.html";
+    }
+  </script>
+  
+</body>
+</html>
+
