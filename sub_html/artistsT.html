@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <link rel="icon" href="../assets/img/icon.ico" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nghệ sĩ yêu thích của T</title>
+  <style>
+    @keyframes blink {
+      0%   { opacity: 1; }
+      50%  { opacity: 0.6; }
+      100% { opacity: 1; }
+    }
+  
+    body {
+      background-image: url('../assets/img/background.jpg');
+      background-size: cover;
+      background-position: center;
+      font-family: Arial, sans-serif;
+      background-color: #fefefe;
+      color: #ffffff;
+      margin: 0;
+      padding: 20px;
+    }
+  
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: yellow;
+      animation: blink 1.5s infinite;
+    }
+  
+    p.intro {
+      text-align: center;
+      font-size: 1.2em;
+      margin-bottom: 40px;
+      color: yellow;
+      animation: blink 1.5s infinite;
+    }
+  
+    .artist {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+      gap: 20px;
+    }
+  
+    .artist img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgb(255, 255, 255);
+    }
+  
+    .artist-info {
+      max-width: 600px;
+    }
+  
+    .artist-info h2 {
+      margin: 0 0 10px;
+      font-size: 1.5em;
+    }
+  
+    .artist-info p {
+      margin: 0;
+      line-height: 1.5;
+    }
+    .back-btn {
+      padding: 10px 15px;
+      border: none;
+      background-color: #ffd700;
+      color: black;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1em;
+      box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      margin-bottom: 20px;
+    }
+    .back-btn:hover {
+      background-color: #ffea88;
+    }
+  </style>
+  
+</head>
+<body>
+    <button class="back-btn" onclick="history.back()">← Quay lại trang chủ</button>
+  <h1>Nghệ sĩ yêu thích của T</h1>
+  <p class="intro">Dưới đây là những idol mà T hâm mộ &lt;333</p>
+
+  <div class="artist">
+    <img src="../assets/pictures/artists/blackpink.jpg" alt="BLACKPINK">
+    <div class="artist-info">
+      <h2>BLACKPINK</h2>
+      <p>Một nhóm nhạc nữ tài năng và nổi tiếng nhất K-Pop của YG Entertainment</p>
+    </div>
+  </div>
+
+  <div class="artist">
+    <img src="../assets/pictures/artists/babymonster.jpg" alt="BABYMONSTER">
+    <div class="artist-info">
+      <h2>BABYMONSTER</h2>
+      <p> Một nhóm nhạc nữ đa quốc tịch với các thành viên sở hữu visual nổi bật</p>
+    </div>
+  </div>
+
+  <div class="artist">
+    <img src="../assets/pictures/artists/illit.jpg" alt="ILLIT">
+    <div class="artist-info">
+      <h2>ILLIT</h2>
+      <p>Một nhóm nhạc nữ với concept rất đáng yêu và các thành viên có ngoại hình xinh đẹp</p>
+    </div>
+  </div>
+</body>
+</html>
